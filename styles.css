@@ -2,14 +2,32 @@
     display: flex;
     flex-direction: column;
     height: 130vh;
-    margin: 0;
+    width: 130vh;
     padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(213, 232, 212, 255);
+    position: relative;
+    overflow: hidden;
+}
+
+.board::before {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background-image: url("assets/monopoly-logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: rotate(45deg);
+    z-index: 1;
 }
 
 .board .board-row {
     display: flex;
     width: 130vh;
-    background-color: rgba(213,232,212,255);
+
     margin: 0;
     padding: 0;
 }
@@ -41,9 +59,14 @@
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
+    text-align: center;
     color: black;
-    font-size: 16px;
+    font-family: "Arial Narrow", serif;
+    font-weight: bold;
+    font-size: 9px;
 }
 
 .board .board-row .board-column .tile-tb .bar-tb{
@@ -82,14 +105,19 @@
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     justify-content: flex-end;
+    align-items: center;
+    text-align: center;
     color: black;
-    font-size: 16px;
+    font-family: "Arial Narrow", serif;
+    font-weight: bold;
+    font-size: 9px;
 }
 
 .board .board-row .board-column .tile-rl .bar-rl{
     width: 3vh;
+    flex-shrink: 0;
     height: 100%;
     box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
     margin: 0;
@@ -123,36 +151,46 @@
 .board .board-row .board-column .tile-tb-icon{
     width: 100%;
     height: 100%;
+    max-width: 13vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
+    text-align: center;
     color: black;
-    font-size: 16px;
+    font-family: "Arial Narrow", serif;
+    font-weight: bold;
+    font-size: 9px;
 }
 
 .board .board-row .board-column .tile-rl-icon{
     width: 100%;
     height: 100%;
+    max-height: 13vh;
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     justify-content: center;
     align-items: center;
+    text-align: center;
     color: black;
-    font-size: 16px;
+    font-family: "Arial Narrow", serif;
+    font-weight: bold;
+    font-size: 9px;
 }
 
 .board .board-row .board-column .tile-tb-icon .tile-icon{
     width: auto;
-    max-width: 13vh;
-    height: 50%;
+    max-width: 10vh;
+    height: 40%;
+    margin-top: 1vh;
     object-position: center;
 }
 
 .board .board-row .board-column .tile-rl-icon .tile-icon{
-    width: 50%;
+    width: 40%;
     height: auto;
-    max-height: 13vh;
-    object-position: center;
+    max-height: 10vh;
+    margin-right: -2vh;
 }
 
 .board .board-row .board-column .tile-rl-icon .left{
@@ -160,17 +198,21 @@
 }
 
 .board .board-row .board-column .tile-rl-icon .right{
-    transform: rotate(270deg);
+    transform: rotate(90deg);
 }
 
 .board .board-row .board-column .tile-corner{
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
     color: black;
-    font-size: 16px;
+    font-family: "Arial Narrow", serif;
+    font-weight: bold;
+    font-size: 9px;
 }
 
 .board .board-row .board-column .tile-corner .tile-icon{
@@ -184,7 +226,7 @@
 }
 
 .top-right{
-    transform: rotate(270deg);
+    transform: rotate(225deg);
 }
 
 .bottom-left{
@@ -192,5 +234,57 @@
 }
 
 .bottom-right{
-    transform: rotate(315deg) scaleX(-1);
+    transform: rotate(315deg);
+}
+
+.reflected{
+    transform: scaleX(-1);
+}
+
+.tile-tb .property-name, .tile-tb-icon .property-name{
+    margin-top: 1vh;
+    width: 100%;
+    max-width: 13vh;
+}
+
+
+.board .board-row .board-column .tile-tb .property-price{
+    margin-top: 6vh;
+    width: 100%;
+    max-width: 13vh;
+}
+
+.tile-rl .property-name {
+    margin-right: 1vh;
+    height: 100%;
+    max-height: 13vh;
+    margin-left: 3vh;
+}
+
+.tile-rl-icon .property-name{
+    margin-right: 3vh;
+    height: 100%;
+    max-height: 13vh;
+}
+
+
+.board .board-row .board-column .tile-rl .property-price{
+    height: 100%;
+    max-height: 13vh;
+    margin-left: -2vh;
+}
+
+.board .board-row .board-column .tile-rl-icon .property-price{
+    margin-left: 2vh;
+}
+
+
+.board .board-row .board-column .tile-rl .left{
+    transform: rotate(90deg);
+}
+
+.board .board-row .board-column .tile-corner .corner-text{
+    margin-top: 1vh;
+    width: 100%;
+    max-width: 13vh;
 }
